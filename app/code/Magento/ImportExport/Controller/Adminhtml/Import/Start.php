@@ -109,6 +109,9 @@ class Start extends ImportResultController implements HttpPostActionInterface
 
                 $this->addErrorMessages($resultBlock, $errorAggregator);
                 $resultBlock->addSuccess(__('Import successfully done'));
+
+                $goBackHtml = '<a href="'.$this->getUrl('adminhtml/*/index').'" />'.__('Start import again').'</a>';
+                $resultBlock->addAction('innerHTML', 'import_validation_actions', $goBackHtml);
             }
 
             return $resultLayout;
